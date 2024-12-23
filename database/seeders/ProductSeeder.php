@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
             Product::create([
                 'name' => $faker->name,
                 'description' => $faker->text,
-                'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
+                'price' => $faker->numberBetween(100, 1000),
                 'quantity' => $faker->numberBetween($min = 1, $max = 100),
             ]);
         }
