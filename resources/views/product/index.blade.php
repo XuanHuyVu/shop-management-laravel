@@ -1,8 +1,9 @@
-@extends('layouts.dashboard');
+@extends('layouts.dashboard')
+
 @section('content')
     <div class="container">
         <h1>Danh sách Sách</h1>
-{{--        <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm sách</a>--}}
+        <a href="{{ route('product.create') }}" class="btn btn-primary">Thêm sách</a>
         <table class="table mt-3">
             <thead>
             <tr>
@@ -22,13 +23,13 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>
-{{--                        <a href="{{ route('books.show', $book->id) }}" class="btn btn-success">Xem</a>--}}
-{{--                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">Sửa</a>--}}
-{{--                        <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display:inline-block;">--}}
-{{--                            @csrf--}}
-{{--                            @method('DELETE')--}}
-{{--                            <button class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>--}}
-{{--                        </form>--}}
+                        <a href="{{ route('product.show', $product->id) }}" class="btn btn-success">Xem</a>
+                        <a href="{{ route('product.edit', $product->id) }}" class="btn btn-warning">Sửa</a>
+                        <form action="{{ route('product.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
