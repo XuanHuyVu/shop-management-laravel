@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -11,7 +12,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer ::all();
+        return view('customer.index', compact('customers'));
     }
 
     /**
@@ -19,7 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.create');
     }
 
     /**
@@ -27,7 +29,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'addess' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+        Customer::create($request->all());
+        return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
     }
 
     /**
@@ -35,7 +44,8 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        return view('customer.show', compact('customer'));
     }
 
     /**
@@ -43,7 +53,8 @@ class CustomerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -51,7 +62,15 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'addess' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+        $customer = Customer::find($id);
+        $customer->update($request->all());
+        return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
     }
 
     /**
@@ -59,6 +78,8 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect()->route('customer.index')->with('success', 'Customer deleted successfully.');
     }
 }
