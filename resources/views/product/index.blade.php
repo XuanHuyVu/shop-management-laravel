@@ -1,14 +1,14 @@
 @extends('layouts.dashboard');
 @section('content')
     <div class="container">
-        <h1>Danh sách Sách</h1>
+        <h1>DANH SÁCH SẢN PHẨM</h1>
 {{--        <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm sách</a>--}}
         <table class="table mt-3">
             <thead>
             <tr>
                 <th>#</th>
                 <th>Tên sản phẩm</th>
-                <th>Mô tả sản pẩm</th>
+                <th>Mô tả sản phẩm</th>
                 <th>Giá tiền</th>
                 <th>Số lượng</th>
             </tr>

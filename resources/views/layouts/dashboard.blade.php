@@ -20,10 +20,10 @@
                     <a class="nav-link active" href="#">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('product.index') }}">Sản phẩm</a>
+                    <a class="nav-link" href="{{ route('product.index') }}">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="#">Customers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Orders</a>
@@ -68,7 +68,7 @@
     @yield('content')
 </div>
 <footer class="text-center mt-4 py-4 bg-light">
-    <p>&copy; {{ date('Y') }} Quản lý thư viện.</p>
+    <p>&copy; {{ date('Y') }} Quản lý bán hàng.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
