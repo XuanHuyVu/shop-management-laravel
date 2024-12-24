@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý bán hàng</title>
+    <title>Quản lý bán hàng | Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .highlight {
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{ route('product.index') }}" id="products-link">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="customers-link">Khách hàng</a>
+                    <a class="nav-link" href="{{ route('customer.index')}}" id="customers-link">Khách hàng</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="orders-link">Đơn hàng</a>
@@ -70,7 +70,7 @@
     @yield('content')
 </div>
 <footer class="text-center mt-4 py-4 bg-light">
-    <p>&copy; {{ date('Y') }} Quản lý thư viện.</p>
+    <p>&copy; {{ date('Y') }} Quản lý cửa hàng.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
