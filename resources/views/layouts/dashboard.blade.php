@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý bán hàng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .highlight {
+            background-color: lightblue !important;
+        }
+    </style>
 </head>
 <body>
 <!-- Navbar -->
@@ -17,16 +22,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Dashboard</a>
+                    <a class="nav-link active" href="#" id="dashboard-link">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('product.index') }}">Sản phẩm</a>
+                    <a class="nav-link" href="{{ route('product.index') }}" id="products-link">Sản phẩm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="#" id="customers-link">Khách hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="#" id="orders-link">Đơn hàng</a>
                 </li>
             </ul>
         </div>
@@ -38,7 +43,7 @@
     <div class="row">
         <!-- Stats Cards -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="card highlight-card" id="customers-card">
                 <div class="card-body text-center">
                     <h5 class="card-title">Users</h5>
                     <p class="card-text">Total: 100</p>
@@ -46,7 +51,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card highlight-card" id="products-card">
                 <div class="card-body text-center">
                     <h5 class="card-title">Products</h5>
                     <p class="card-text">Total: 50</p>
@@ -54,7 +59,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card highlight-card" id="orders-card">
                 <div class="card-body text-center">
                     <h5 class="card-title">Orders</h5>
                     <p class="card-text">Total: 200</p>
@@ -71,5 +76,30 @@
     <p>&copy; {{ date('Y') }} Quản lý thư viện.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const links = document.querySelectorAll('.nav-link');
+    const highlightCards = document.querySelectorAll('.highlight-card');
+
+    // Kiểm tra trạng thái từ localStorage
+    const activeSection = localStorage.getItem('activeSection');
+    if (activeSection) {
+        highlightCards.forEach(card => card.classList.remove('highlight'));
+        document.getElementById(activeSection).classList.add('highlight');
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', function () {
+            // Xóa highlight trên tất cả các card
+            highlightCards.forEach(card => card.classList.remove('highlight'));
+
+            // Thêm highlight vào card tương ứng
+            const sectionId = link.id.replace('-link', '-card');
+            document.getElementById(sectionId).classList.add('highlight');
+
+            // Lưu trạng thái vào localStorage
+            localStorage.setItem('activeSection', sectionId);
+        });
+    });
+</script>
 </body>
 </html>
