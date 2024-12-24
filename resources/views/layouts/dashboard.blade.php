@@ -45,8 +45,7 @@
         <div class="col-md-4">
             <div class="card highlight-card" id="customers-card">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Users</h5>
-                    <p class="card-text">Total: 100</p>
+                    <h5 class="card-title">Customers</h5>
                 </div>
             </div>
         </div>
@@ -54,7 +53,6 @@
             <div class="card highlight-card" id="products-card">
                 <div class="card-body text-center">
                     <h5 class="card-title">Products</h5>
-                    <p class="card-text">Total: 50</p>
                 </div>
             </div>
         </div>
@@ -62,7 +60,6 @@
             <div class="card highlight-card" id="orders-card">
                 <div class="card-body text-center">
                     <h5 class="card-title">Orders</h5>
-                    <p class="card-text">Total: 200</p>
                 </div>
             </div>
         </div>
