@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class OrderController extends Controller
 {
@@ -22,6 +23,7 @@ class OrderController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -30,6 +32,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -62,5 +65,18 @@ class OrderController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    // Hiển thị lịch sử đơn hàng của khách hàng
+    public function showOrderHistory(customer $customer)
+    {
+        // Lấy ra tất cả đơn hàng của khách hàng
+        $orders = $customer->orders;
+
+        // Đặt giá trị cho biến idColumnLabel
+        $idColumnLabel = 'Order ID';  // Hoặc thay bằng bất kỳ giá trị nào bạn muốn
+
+        // Truyền dữ liệu vào view
+        return view('orders.history', compact('orders', 'customer', 'idColumnLabel'));
     }
 }
