@@ -31,7 +31,7 @@
                     <a class="nav-link" href="{{ route('customer.index')}}" id="customers-link">Khách hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="orders-link">Đơn hàng</a>
+                    <a class="nav-link" href="{{route('order.index')}}" id="orders-link">Đơn hàng</a>
                 </li>
             </ul>
         </div>
